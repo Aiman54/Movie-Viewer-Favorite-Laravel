@@ -1,19 +1,22 @@
-# Web-Developer-test
-
 Write in Terminal:
 
-1) cd C:\xampp\htdocs\Web-Developer-test-main\MovieDBApp
+cd C:\xampp\htdocs\Web-Developer-test-main\MovieDBApp
 
-2) composer install
+composer install
 
-3) cp .env.example .env
+cp .env.example .env
 
-4) php artisan key:generate
+php artisan key:generate
 
-5) php artisan serve
+npm install
 
-then, link url
-http://127.0.0.1:8000/login
+npm run dev
+
+npm run build
+
+php artisan serve
+
+then, link url http://127.0.0.1:8000/login
 
 if require login,
 
