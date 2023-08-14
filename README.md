@@ -16,3 +16,6 @@ Write in Terminal:
 
 then, link url
 http://127.0.0.1:8000/movies
+
+email : johndoe@example.com
+password : password
