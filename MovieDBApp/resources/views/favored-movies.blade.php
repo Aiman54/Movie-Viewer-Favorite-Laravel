@@ -83,57 +83,55 @@
             margin-top: 20px;
         }
 
-        .pagination-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
         .pagination {
-            list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .pagination li {
-            margin: 0;
+            margin: 0 5px;
         }
 
-        .pagination a,
-        .pagination span {
-            color: #007bff; /* Set the button color to blue */
+        .pagination a {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
             text-decoration: none;
-            padding: 8px 12px;
-            border: 1px solid #007bff; /* Set the border color to blue */
-            border-radius: 4px;
-            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-            margin: 0 5px; /* Add some spacing between buttons */
+            transition: background-color 0.2s, color 0.2s;
         }
 
         .pagination a:hover {
-            background-color: #007bff;
+            background-color: #0056b3;
+        }
+
+        /* Style for active page link */
+        .pagination .active a {
+            background-color: #0056b3;
             color: white;
-            border-color: #007bff;
         }
 
-        .pagination .active span {
-            background-color: #007bff;
-            color: white;
-            border-color: #007bff;
+        .remove-button {
+        background-color: #ff6347; /* Red background */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 10px;
+        display: block;
+        width: 35%;
+        text-align: center;
         }
 
-        .pagination .disabled span {
-            color: #ccc;
-            pointer-events: none;
-        }
-
-        .pagination .ellipsis {
-            padding: 0 5px;
-            display: flex;
-            align-items: center;
-            color: #aaa;
+        .remove-button:hover {
+            background-color: #d9534f; /* Darker red background on hover */
         }
 
        
@@ -172,22 +170,40 @@
             <p><strong>Overview:</strong> {{ $movieDetails['overview'] }}</p>
             <p><strong>Popularity:</strong> {{ $movieDetails['popularity'] }}</p>
             <img src="https://image.tmdb.org/t/p/w500/{{ $movieDetails['poster_path'] }}" alt="{{ $movieDetails['title'] }} Poster">
+
+            <button class="remove-button" data-movie-id="{{ $favoredMovie->movie_id }}">Remove</button>
         </div>
     @endforeach
 </div>
 
 <div class="pagination-container">
-    <ul class="pagination">
-        {{ $favoredMovies->links() }}
-    </ul>
+    {{ $favoredMovies->links('pagination::bootstrap-5') }}
 </div>
 
+</div>
 
 <script>
-    
+    document.addEventListener('DOMContentLoaded', function () {
+        const removeButtons = document.querySelectorAll('.remove-button');
+
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const movieId = button.getAttribute('data-movie-id');
+
+                axios.post('/remove-favorite', { movie_id: movieId })
+                    .then(response => {
+                        alert(response.data.message); // Display success message
+                        window.location.reload(); // Refresh the page after removing
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+    });
 </script>
 
-<!-- Rest of your JavaScript code... -->
+
 
 </body>
 </html>

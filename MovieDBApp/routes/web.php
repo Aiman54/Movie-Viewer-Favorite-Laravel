@@ -55,6 +55,9 @@ Route::get('/favored-movie', [FavoriteController::class, 'favoredMovieTitles']);
 
 Route::middleware(['auth'])->group(function () {
 
+Route::post('/remove-favorite', [FavoriteController::class, 'removeFavorite']);
+
+
     
    
 });

@@ -98,4 +98,21 @@ class FavoriteController extends Controller
     
     }
 
+    public function removeFavorite(Request $request)
+    {
+        if (auth()->check()) {
+            $user = auth()->user();
+            $movieId = $request->input('movie_id');
+
+            // Find and delete the favorite record for the movie
+            Favorite::where('user_id', $user->id)
+                ->where('movie_id', $movieId)
+                ->delete();
+
+            return response()->json(['message' => 'Movie removed from favorites']);
+        } else {
+            return response()->json(['message' => 'User not authenticated'], 401);
+        }
+    }
+
 }
