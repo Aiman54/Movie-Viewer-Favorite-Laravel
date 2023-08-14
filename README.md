@@ -17,7 +17,7 @@ Write in Terminal:
 8) php artisan serve
 
 then, link url
-http://127.0.0.1:8000/login
+http://127.0.0.1:8000/movies
 
 if require login,
 
