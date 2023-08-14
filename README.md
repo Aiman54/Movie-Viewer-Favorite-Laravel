@@ -16,6 +16,7 @@ Write in Terminal:
 
 then, link url http://127.0.0.1:8000/login
 
+when require login,
 Email : johndoe@example.com
 
 Password : password
