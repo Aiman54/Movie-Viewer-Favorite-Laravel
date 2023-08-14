@@ -16,6 +16,8 @@ Write in Terminal:
 
 then, link url http://127.0.0.1:8000/login
 
+after login, should go to http://127.0.0.1:8000/movies
+
 if require login,
 
 Email : johndoe@example.com
