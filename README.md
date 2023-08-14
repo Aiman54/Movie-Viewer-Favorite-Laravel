@@ -10,7 +10,9 @@ Write in Terminal:
 
 4) php artisan key:generate
 
-5) php artisan serve
+5) npm run build
+
+6) php artisan serve
 
 then, link url
 http://127.0.0.1:8000/movies
