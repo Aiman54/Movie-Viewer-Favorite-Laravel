@@ -1,20 +1,18 @@
 Write in Terminal:
 
-cd C:\xampp\htdocs\Web-Developer-test-main\MovieDBApp
+1) cd C:\xampp\htdocs\Web-Developer-test-main\MovieDBApp
 
-composer install
+2) composer install
 
-cp .env.example .env
+3) cp .env.example .env
 
-php artisan key:generate
+4) php artisan key:generate
 
-npm install
+5) npm install
 
-npm run dev
+6) npm run build
 
-npm run build
-
-php artisan serve
+7) php artisan serve
 
 then, link url http://127.0.0.1:8000/login
 
