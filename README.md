@@ -1,3 +1,6 @@
+![Uploading image.png…]()
+
+
 Write in Terminal:
 
 1) cd C:\xampp\htdocs\Web-Developer-test-main\MovieDBApp
