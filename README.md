@@ -1,3 +1,5 @@
+![image](https://github.com/Aiman54/Movie-Viewer-Favorite-Laravel/assets/120151123/bb3b260f-3fda-4718-91cd-06b16bb36713)
+
 Write in Terminal:
 
 1) cd C:\xampp\htdocs\Web-Developer-test-main\MovieDBApp
